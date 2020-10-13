@@ -1,0 +1,6 @@
+test
+python3 main.py -m test --save-dir save/day1 --name camvid --dataset camvid --dataset-dir path/root_directory/
+
+train
+python3 main.py -m train --save-dir save/day1 --name model_name --dataset name --dataset-dir path/root_directory/
+
