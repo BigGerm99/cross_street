@@ -36,6 +36,7 @@ def imshow_batch(images, labels):
     """
 
     # Make a grid with the images and labels and convert it to numpy
+    print(type(images))
     images = torchvision.utils.make_grid(images).numpy()
     labels = torchvision.utils.make_grid(labels).numpy()
 

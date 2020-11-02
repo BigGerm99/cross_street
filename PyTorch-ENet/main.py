@@ -248,6 +248,7 @@ def test(model, test_loader, class_weights, class_encoding):
     if args.imshow_batch:
         print("A batch of predictions from the test set...")
         images, _ = iter(test_loader).next()
+        print(images)
         predict(model, images, class_encoding)
 
 
@@ -263,6 +264,7 @@ def predict(model, images, class_encoding):
     # Convert it to a single int using the indices where the maximum (1) occurs
     _, predictions = torch.max(predictions.data, 1)
 
+    print(predictions.data)
     label_to_rgb = transforms.Compose([
         ext_transforms.LongTensorToRGBPIL(class_encoding),
         transforms.ToTensor()
@@ -314,7 +316,7 @@ if __name__ == '__main__':
         model = utils.load_checkpoint(model, optimizer, args.save_dir,
                                       args.name)[0]
 
-        if args.mode.lower() == 'test':
-            print(model)
+#        if args.mode.lower() == 'test':
+#            print(model)
 
         test(model, test_loader, w_class, class_encoding)
